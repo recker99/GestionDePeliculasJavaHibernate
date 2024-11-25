@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-11-2024 12:38:46 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entidades.Pelicula" table="pelicula" catalog="moviesstoredb" optimistic-lock="version">
+        <id name="idPelicula" type="java.lang.Long">
+            <column name="id_pelicula" />
+            <generator class="identity" />
+        </id>
+        <!-- Relación con Genero -->
+        <many-to-one name="genero" class="entidades.Genero" fetch="select">
+            <column name="id_genero" not-null="true" />
+        </many-to-one>
+        <!-- Propiedad nombrePelicula -->
+        <property name="nombrePelicula" type="string">
+            <column name="nombre_pelicula" length="50" not-null="true" />
+        </property>
+        <!-- Propiedad annoPelicula -->
+        <property name="annoPelicula" type="int">
+            <column name="anno_pelicula" not-null="true" />
+        </property>
+        <!-- Propiedad fechaRegistro -->
+        <property name="fechaRegistro" type="timestamp">
+            <column name="fecha_registro" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
+

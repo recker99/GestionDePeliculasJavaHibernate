@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+    <title>Gestión de Películas</title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/Styles/estilos.css" />
+
+</h:head>
+<h:body>
+    <!-- Contenedor principal -->
+ <div class="main-container">
+     <h1>Registro de Películas</h1>
+        <!-- Formulario de registro -->
+        <div class="form-wrapper">  
+          <h:form>
+              <div class="form-container"> 
+                  <div class="form-group">
+                      <h:outputLabel value="Nombre de la Película:" for="nombrePelicula"/>
+                      <h:inputText id="nombrePelicula" value="#{peliBean.nombrePelicula}"/>
+                  </div>
+                  <div class="form-group">
+                      <h:outputLabel value="Año de la Película:" for="annoPelicula"/>
+                      <h:inputText id="annoPelicula" value="#{peliBean.annoPelicula}"/>
+                  </div>
+                  <div class="form-group">
+                      <h:outputLabel value="Género:" for="idGenero"/>
+                      <h:selectOneMenu id="idGenero" value="#{peliBean.idGenero}">
+                          <f:selectItems value="#{peliBean.generos}" var="genero"
+                                         itemValue="#{genero.idGenero}" itemLabel="#{genero.nombreGenero}"/>
+                      </h:selectOneMenu>
+                  </div>
+                   <div class="form-actions">   
+                      <h:commandButton value="Registrar" action="#{peliBean.guardarPelicula()}" styleClass="btnRegistrar"/>
+                   </div> 
+               </div>
+           </h:form> 
+         </div>
+    
+   
+        <hr/>
+        
+     <h:form id="formBusqueda" styleClass="form-busqueda">
+        <!-- Buscador -->
+        <h:outputLabel value="Buscar:" for="busqueda"/>
+        <h:inputText id="busqueda" value="#{peliBean.busqueda}" styleClass="input-busqueda"/>
+        <h:commandButton value="Buscar" action="#{peliBean.buscarPeliculas}" styleClass="btnBuscar"/>
+     </h:form>
+        
+        <hr/>
+    <div class="table-wrapper">    
+      <h:form>
+        <h:dataTable value="#{peliBean.peliculasFiltradas}" var="pelicula" border="1">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{pelicula.idPelicula}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                #{pelicula.nombrePelicula}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Año</f:facet>
+                #{pelicula.annoPelicula}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Género</f:facet>
+                #{pelicula.genero.nombreGenero}
+            </h:column>
+            <!-- Nueva columna para la fecha de registro -->
+            <h:column>
+                <f:facet name="header">Fecha Registro</f:facet>
+                #{pelicula.fechaRegistro}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Acciones</f:facet>
+                <h:commandButton value="Editar" action="#{peliBean.editarPelicula(pelicula)}" styleClass="btnModificar"/>
+                <h:commandButton value="Eliminar" action="#{peliBean.eliminarPelicula(pelicula)}" styleClass="btnEliminar"/>
+            </h:column>
+        </h:dataTable>
+       </h:form>
+     </div>
+ </div>   
+</h:body>
+</html>
+

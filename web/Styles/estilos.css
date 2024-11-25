@@ -1,0 +1,159 @@
+body {  
+    display: flex;   
+    justify-content: center;   
+    align-items: center;  
+    height: 100vh;   
+    margin: 0;   
+    background-color: #f8f9fa;  
+}  
+
+/* Contenedor principal */  
+.main-container {  
+    width: 90%;  
+    max-width: 1000px;  
+    margin: 0 auto;  
+    padding: 20px;  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+}  
+
+/* Estilo del contenedor del formulario */  
+.form-wrapper {  
+    background-color: #ffffff;  
+    padding: 20px;  
+    border-radius: 8px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+    margin: 20px 0;    
+    max-width: 800px;    
+    width: 100%;  
+}  
+
+.form-group {  
+    margin-bottom: 15px;   
+}  
+
+/* Estilo de los inputText (Textboxes) */  
+input[type="text"], input[type="number"], input[type="date"] {  
+    width: 100%;  
+    padding: 12px;  
+    font-size: 14px;  
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
+    outline: none;  
+    box-sizing: border-box; 
+}  
+
+/* Efecto al enfocarse en el textbox */  
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus {  
+    border-color: #007bff;  
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);  
+}  
+
+/* Estilo para el select (h:selectOneMenu) */
+select {
+    width: 100%; 
+    padding: 12px; 
+    font-size: 14px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background-color: #fff; 
+    box-sizing: border-box; 
+    appearance: none; 
+}
+
+/* Efecto al enfocar el select */
+select:focus {
+    border-color: #007bff; 
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4); 
+    outline: none; 
+}
+
+/* Opcional: Estilo para el ícono de desplegable en navegadores compatibles */
+select::-ms-expand {
+    display: none; 
+}
+
+.form-actions {  
+    display: flex;  
+    justify-content: center;   
+    gap: 10px;   
+    margin-top: 20px;  
+} 
+
+/* Estilo de los botones (h:commandButton y button) */  
+.btnRegistrar, .btnEliminar, .btnModificar, .btnActualizar {  
+    padding: 10px 20px;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    color: white;  
+    margin-right: 10px;   
+    transition: background-color 0.3s ease, transform 0.2s;   
+}  
+
+.btnRegistrar {  
+    background-color: #4CAF50;  
+}  
+
+/* Estilo del formulario de búsqueda */
+.form-busqueda {
+    display: flex;
+    align-items: center;  
+    justify-content: flex-start; 
+    gap: 10px;  
+}
+
+/* Estilo del campo de texto de búsqueda */
+.input-busqueda {
+    padding: 8px;
+    width: 250px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Estilo del botón de búsqueda */
+.btnBuscar {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.table-wrapper table {  
+    width: 100%;  
+    border-collapse: collapse;  
+}  
+
+.table-wrapper th,  
+.table-wrapper td {  
+    padding: 10px;  
+    border: 1px solid #ddd;  
+    text-align: left;  
+}  
+
+.table-wrapper th {  
+    background-color: #007bff;  
+    color: white;  
+}  
+
+.table-wrapper td {  
+    background-color: #f9f9f9;  
+}  
+
+.btnEliminar {  
+    background-color: #f44336;   
+}  
+
+.btnModificar {  
+    background-color: #008CBA;  
+} 
+
+.btnActualizar {  
+    background-color: #008CBA; 
+} 
